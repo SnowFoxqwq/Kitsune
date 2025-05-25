@@ -1,0 +1,3 @@
+[submodule "Kitsune/thirdparty/spdlog"]
+	path = Kitsune/thirdparty/spdlog
+	url = https://github.com/gabime/spdlog
