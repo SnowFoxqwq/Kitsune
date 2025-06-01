@@ -9,3 +9,6 @@
 #else
 	#error KITSUNE ONLY SUPPORT WINDOWS NOW!
 #endif //KITSUNE_PLATFORM_WINDOWS
+
+//convert x to bits
+#define BIT(x) (1<<x)

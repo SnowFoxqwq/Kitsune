@@ -26,7 +26,8 @@ project "Kitsune"		--KITSUNE项目
 	}
 	-- 包含目录
 	includedirs{
-		"%{prj.name}/thirdparty/spdlog/include"
+		"%{prj.name}/thirdparty/spdlog/include",
+		"Kitsune/src"
 	}
 	-- 如果是window系统
 	filter "system:windows"
