@@ -10,12 +10,20 @@ workspace "Kitsune"		-- sln文件名
 -- 组成输出目录:Debug-windows-x86_64
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+include_dir = {}
+include_dir["GLFW"] = "Kitsune/thirdparty/glfw/include"
+
+include "Kitsune/thirdparty/glfw"
+
 project "Kitsune"		--KITSUNE项目
 	location "Kitsune"  --在sln所属文件夹下的KITSUNE文件夹
 	kind "SharedLib"    --dll动态库
 	language "C++"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}") -- 输出目录
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")-- 中间目录
+
+	pchheader "kitsune_pch.h"
+	pchsource "Kitsune/src/kitsune_pch.cpp"
 
 	buildoptions { "/utf-8" }
 
@@ -27,7 +35,13 @@ project "Kitsune"		--KITSUNE项目
 	-- 包含目录
 	includedirs{
 		"%{prj.name}/thirdparty/spdlog/include",
+		"%{include_dir.GLFW}",
 		"Kitsune/src"
+	}
+	-- 链接库
+	links{
+		"GLFW",
+		"opengl32.lib"
 	}
 	-- 如果是window系统
 	filter "system:windows"
@@ -50,13 +64,22 @@ project "Kitsune"		--KITSUNE项目
 		defines "KITSUNE_DEBUG"
 		symbols "On"
 
+		staticruntime "off"
+		runtime "Debug"
+
 	filter "configurations:Release"
 		defines "KITSUNE_RELEASE"
 		optimize "On"
 
+		staticruntime "off"
+		runtime "Release"
+
 	filter "configurations:Dist"
 		defines "KITSUNE_DIST"
 		optimize "On"
+		
+		staticruntime "off"
+		runtime "Release"
 
 project "Sandbox"
 	location "Sandbox"
@@ -95,10 +118,19 @@ project "Sandbox"
 		defines "KITSUNE_DEBUG"
 		symbols "On"
 
+		staticruntime "off"
+		runtime "Debug"
+
 	filter "configurations:Release"
 		defines "KITSUNE_RELEASE"
 		optimize "On"
 
+		staticruntime "off"
+		runtime "Release"
+
 	filter "configurations:Dist"
 		defines "KITSUNE_DIST"
 		optimize "On"
+		
+		staticruntime "off"
+		runtime "Release"

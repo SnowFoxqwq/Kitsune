@@ -15,7 +15,7 @@ namespace kitsune
 
 		std::string message() const override 
 		{ 
-			return "<Window Resize Event>: " + std::to_string(_width) + ", " + std::to_string(_height);
+			return "<Window Resize Event>: ( " + std::to_string(_width) + ", " + std::to_string(_height) + " )";
 		}
 
 		EVENT_CLASS_TYPE(WINDOW_RESIZE)

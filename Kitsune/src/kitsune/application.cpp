@@ -1,11 +1,15 @@
+#include "kitsune_pch.h"
 #include "application.h"
-#include <cstdio>
+#include "console.h"
+#include "event/application_event.h"
+
+#include <GLFW/glfw3.h>
 
 namespace kitsune
 {
 	Application::Application()
 	{
-
+		_window = std::unique_ptr<Window>(Window::create());
 	}
 
 	Application::~Application()
@@ -15,9 +19,12 @@ namespace kitsune
 
 	void Application::run()
 	{
-		while (true)
+		while (_is_running)
 		{
-			//printf("kitsune is running!\n");
+			glClearColor(0.f, (float)(47.f / 255.f), (float)(167.f / 255.f), 1.f);
+			glClear(GL_COLOR_BUFFER_BIT);
+			_window->on_update();
+
 		}
 	}
 }

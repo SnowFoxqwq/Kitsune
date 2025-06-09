@@ -1,8 +1,7 @@
 #pragma once
 
+#include "kitsune_pch.h"
 #include "kitsune/core.h"
-#include <functional>
-#include <string>
 
 namespace kitsune
 {
@@ -15,6 +14,8 @@ namespace kitsune
 	//  For the future, a better strategy might be to buffer events in an event bus 
 	//  and process them during the "event" part of the update stage.
 	//-----------------------------------------------------------------------------------------
+
+#undef MOUSE_MOVED
 
 	enum class EventType
 	{
@@ -55,7 +56,7 @@ namespace kitsune
 		virtual int get_category_flags() const = 0;
 		virtual std::string message() const { return get_name(); }
 
-		bool is_in_category(EventCategory category)
+		bool is_in_category(EventCategory category) const
 		{
 			return get_category_flags() & category;
 		}
@@ -86,10 +87,4 @@ namespace kitsune
 	private:
 		Event& _event;
 	};
-
-	inline std::ostream& operator<<(std::ostream& os, const Event& event)
-	{
-		return os << event.message();
-	}
-
 }

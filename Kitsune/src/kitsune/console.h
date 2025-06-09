@@ -1,7 +1,9 @@
 #pragma once
 
+#include "kitsune_pch.h"
+
 #include "core.h"
-#include <memory>
+#define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
 
@@ -16,8 +18,8 @@ namespace kitsune
 		static std::shared_ptr<spdlog::logger>& get_client_logger() { return _client_logger; }
 
 	private:
-		static std::shared_ptr<spdlog::logger> _core_logger;
-		static std::shared_ptr<spdlog::logger> _client_logger;
+		inline static std::shared_ptr<spdlog::logger> _core_logger;
+		inline static std::shared_ptr<spdlog::logger> _client_logger;
 	};
 }
 

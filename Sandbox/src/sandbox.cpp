@@ -1,6 +1,6 @@
 #include<Kitsune.h>
 
-class Sandbox :public kitsune::Application
+class Sandbox : public kitsune::Application
 {
 public:
 	Sandbox()

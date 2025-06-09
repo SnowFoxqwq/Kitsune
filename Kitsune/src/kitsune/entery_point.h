@@ -6,7 +6,7 @@ extern kitsune::Application* kitsune::create_application();
 
 int main(int argc, char** argv)
 {
-	system("chcp 65001");//什么傻逼字符编码，vs你妈死完了
+	system("chcp 65001");
 	system("cls");
 
 	kitsune::Console::init();
