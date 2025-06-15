@@ -31,6 +31,10 @@
     <ClInclude Include="src\kitsune_pch.h" />
     <ClInclude Include="src\kitsune\window.h" />
     <ClInclude Include="src\platform\windows_window.h" />
+    <ClInclude Include="src\kitsune\event\key_event.h" />
+    <ClInclude Include="src\kitsune\core\key_codes.h" />
+    <ClInclude Include="src\kitsune\core\mouse_code.h" />
+    <ClInclude Include="src\kitsune\event\mouse_event.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\kitsune\application.cpp">

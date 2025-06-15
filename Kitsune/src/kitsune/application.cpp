@@ -7,9 +7,11 @@
 
 namespace kitsune
 {
+#define BIND_EVENT_FUNCTION(x) std::bind(&x, this, std::placeholders::_1)
 	Application::Application()
 	{
 		_window = std::unique_ptr<Window>(Window::create());
+		_window->set_event_callback(BIND_EVENT_FUNCTION(Application::on_event));
 	}
 
 	Application::~Application()
@@ -26,5 +28,9 @@ namespace kitsune
 			_window->on_update();
 
 		}
+	}
+	void Application::on_event(Event& event)
+	{
+		KITSUNE_CORE_INFO("Application: Event Received {0}", event);
 	}
 }
