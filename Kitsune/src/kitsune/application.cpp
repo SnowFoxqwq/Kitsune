@@ -3,6 +3,22 @@
 #include "console.h"
 #include "event/application_event.h"
 
+#include <spdlog/fmt/ostr.h>
+namespace fmt
+{
+	template<typename T>
+	struct formatter<T, std::enable_if_t<std::is_base_of_v<kitsune::Event, T>, char>> {
+		constexpr auto parse(format_parse_context& ctx) -> decltype(ctx.begin()) {
+			return ctx.begin();
+		}
+
+		template<typename FormatContext>
+		auto format(const T& event, FormatContext& ctx) const -> decltype(ctx.out()) {
+			return fmt::format_to(ctx.out(), "{}", event.message());
+		}
+	};
+}
+
 #include <GLFW/glfw3.h>
 
 namespace kitsune

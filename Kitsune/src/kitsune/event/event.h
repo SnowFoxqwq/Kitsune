@@ -87,4 +87,7 @@ namespace kitsune
 	private:
 		Event& _event;
 	};
+
+	static std::ostream& operator<<(std::ostream& os, const Event& event);
+
 }
