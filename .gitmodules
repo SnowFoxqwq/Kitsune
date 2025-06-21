@@ -4,3 +4,9 @@
 [submodule "Kitsune/thirdparty/glfw"]
 	path = Kitsune/thirdparty/glfw
 	url = https://github.com/glfw/glfw
+[submodule "Kitsune/Kitsune/thirdparty/glfw"]
+	path = Kitsune/Kitsune/thirdparty/glfw
+	url = https://github.com/SnowFoxqwq/glfw---kitsune_specialized.git
+[submodule "glfw"]
+	path = Kitsune/thirdparty/glfw
+	url = https://github.com/SnowFoxqwq/glfw---kitsune_specialized
