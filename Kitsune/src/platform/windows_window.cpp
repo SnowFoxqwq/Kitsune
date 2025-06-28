@@ -1,4 +1,5 @@
 #include "kitsune_pch.h"
+
 #include "windows_window.h"
 #include "kitsune/console.h"
 
@@ -74,6 +75,10 @@ namespace kitsune
 
 		_window = glfwCreateWindow(_data.width, _data.height, _data.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(_window);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		KITSUNE_CORE_ASSERT(status, "Failed to initialize glad");
+
 		glfwSetWindowUserPointer(_window, &_data);
 
 		glfwSetWindowSizeCallback(_window, [](GLFWwindow* window, int width, int height)

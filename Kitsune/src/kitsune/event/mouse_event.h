@@ -17,7 +17,7 @@ namespace kitsune
 
 		std::string message() const override
 		{
-			return "<Mouse Moved Event>: " + std::to_string(_mouse_x) + ", " + std::to_string(_mouse_y);
+			return "<Mouse Moved Event>: (" + std::to_string(_mouse_x) + ", " + std::to_string(_mouse_y) + ")";
 		}
 
 		EVENT_CLASS_TYPE(MOUSE_MOVED)
@@ -38,7 +38,7 @@ namespace kitsune
 
 		std::string message() const override
 		{
-			return "<Mouse Scrolled Event>: " + std::to_string(get_x_offset()) + ", " + std::to_string(get_y_offset());
+			return "<Mouse Scrolled Event>: (" + std::to_string(get_x_offset()) + ", " + std::to_string(get_y_offset()) + ")";
 		}
 
 		EVENT_CLASS_TYPE(MOUSE_SCROLLED)

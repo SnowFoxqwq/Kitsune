@@ -1,7 +1,7 @@
 #pragma once
 
 #include "kitsune_pch.h"
-#include "kitsune/core.h"
+#include "kitsune/core/core.h"
 
 namespace kitsune
 {
@@ -60,9 +60,8 @@ namespace kitsune
 		{
 			return get_category_flags() & category;
 		}
-
-	protected:
-		bool _handled = false;
+	public:
+		bool handled = false;
 	};
 
 	class EventDispatcher
@@ -79,7 +78,7 @@ namespace kitsune
 			if (_event.get_event_type() == T::get_static_event_type())
 			{
 				//using pointers and polymorphism to convert the type of _event to T and call functions
-				_event._handled = function(*(T*)&_event);
+				_event.handled = function(*(T*)&_event);
 				return true;
 			}
 			return false;

@@ -4,8 +4,14 @@
     <Filter Include="kitsune">
       <UniqueIdentifier>{68D6B82D-D4B5-37C9-DDCD-C29F492C9E2A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="kitsune\core">
+      <UniqueIdentifier>{E0C7D1A6-CC2A-614B-75B0-990161F22CCE}</UniqueIdentifier>
+    </Filter>
     <Filter Include="kitsune\event">
       <UniqueIdentifier>{D9953281-4556-AEB7-0E91-F7347A10F393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform">
+      <UniqueIdentifier>{4A63C33C-3630-1E48-5F49-0CF04B7553D6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -16,8 +22,14 @@
     <ClInclude Include="src\kitsune\console.h">
       <Filter>kitsune</Filter>
     </ClInclude>
-    <ClInclude Include="src\kitsune\core.h">
-      <Filter>kitsune</Filter>
+    <ClInclude Include="src\kitsune\core\core.h">
+      <Filter>kitsune\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kitsune\core\key_codes.h">
+      <Filter>kitsune\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kitsune\core\mouse_code.h">
+      <Filter>kitsune\core</Filter>
     </ClInclude>
     <ClInclude Include="src\kitsune\entery_point.h">
       <Filter>kitsune</Filter>
@@ -28,13 +40,25 @@
     <ClInclude Include="src\kitsune\event\event.h">
       <Filter>kitsune\event</Filter>
     </ClInclude>
+    <ClInclude Include="src\kitsune\event\key_event.h">
+      <Filter>kitsune\event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kitsune\event\mouse_event.h">
+      <Filter>kitsune\event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kitsune\layer.h">
+      <Filter>kitsune</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kitsune\layer_stack.h">
+      <Filter>kitsune</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kitsune\window.h">
+      <Filter>kitsune</Filter>
+    </ClInclude>
     <ClInclude Include="src\kitsune_pch.h" />
-    <ClInclude Include="src\kitsune\window.h" />
-    <ClInclude Include="src\platform\windows_window.h" />
-    <ClInclude Include="src\kitsune\event\key_event.h" />
-    <ClInclude Include="src\kitsune\core\key_codes.h" />
-    <ClInclude Include="src\kitsune\core\mouse_code.h" />
-    <ClInclude Include="src\kitsune\event\mouse_event.h" />
+    <ClInclude Include="src\platform\windows_window.h">
+      <Filter>platform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\kitsune\application.cpp">
@@ -43,8 +67,18 @@
     <ClCompile Include="src\kitsune\console.cpp">
       <Filter>kitsune</Filter>
     </ClCompile>
+    <ClCompile Include="src\kitsune\event\event.cpp">
+      <Filter>kitsune\event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kitsune\layer.cpp">
+      <Filter>kitsune</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kitsune\layer_stack.cpp">
+      <Filter>kitsune</Filter>
+    </ClCompile>
     <ClCompile Include="src\kitsune_pch.cpp" />
-    <ClCompile Include="src\platform\windows_window.cpp" />
-    <ClCompile Include="src\kitsune\event\event.cpp" />
+    <ClCompile Include="src\platform\windows_window.cpp">
+      <Filter>platform</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

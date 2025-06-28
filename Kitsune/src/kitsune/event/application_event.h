@@ -1,6 +1,6 @@
 #pragma once
 
-#include "kitsune/core.h"
+#include "kitsune/core/core.h"
 #include "event.h"
 
 namespace kitsune
@@ -29,6 +29,11 @@ namespace kitsune
 	{
 	public:
 		WindowCloseEvent() = default;
+
+		std::string message() const override
+		{
+			return "<Window Close Event>";
+		}
 
 		EVENT_CLASS_TYPE(WINDOW_CLOSE)
 		EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)

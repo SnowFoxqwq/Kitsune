@@ -1,7 +1,7 @@
 #pragma once
 
 #include "kitsune_pch.h"
-#include "kitsune/core.h"
+#include "core/core.h"
 #include "kitsune/event/event.h"
 
 namespace kitsune

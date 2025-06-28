@@ -41,12 +41,46 @@ namespace kitsune
 		{
 			glClearColor(0.f, (float)(47.f / 255.f), (float)(167.f / 255.f), 1.f);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (auto layer : _layer_stack)
+			{
+				layer->on_update();
+			}
+
 			_window->on_update();
 
 		}
 	}
 	void Application::on_event(Event& event)
 	{
-		KITSUNE_CORE_INFO("Application: Event Received {0}", event);
+		EventDispatcher dispatcher(event);
+		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(Application::on_window_close));
+		KITSUNE_CORE_TRACE("Application: Event Received {0}", event);
+
+		for (auto it = _layer_stack.end(); it != _layer_stack.begin();)
+		{
+			(*--it)->on_event(event);
+			if (event.handled)
+			{
+				break;
+			}
+		}
+
+	}
+
+	void Application::push_layer(Layer* layer)
+	{
+		_layer_stack.push_layer(layer);
+	}
+
+	void Application::push_overlay(Layer* overlay)
+	{
+		_layer_stack.push_overlay(overlay);
+	}
+
+	bool Application::on_window_close(WindowCloseEvent& event)
+	{
+		_is_running = false;
+		return true;
 	}
 }
