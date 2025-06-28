@@ -10,3 +10,4 @@
 [submodule "glfw"]
 	path = Kitsune/thirdparty/glfw
 	url = https://github.com/SnowFoxqwq/glfw---kitsune_specialized
+	ignore = dirty
