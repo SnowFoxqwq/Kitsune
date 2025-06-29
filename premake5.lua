@@ -12,10 +12,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 include_dir = {}
 include_dir["GLFW"] = "Kitsune/thirdparty/glfw/include"
-include_dir["GLFW"] = "Kitsune/thirdparty/glfw/include"
+include_dir["glad"] = "Kitsune/thirdparty/glad/include"
+include_dir["imgui"] = "Kitsune/thirdparty/imgui"
 
 include "Kitsune/thirdparty/glfw"
 include "Kitsune/thirdparty/glad"
+include "Kitsune/thirdparty/imgui"
 
 project "Kitsune"		--KITSUNE项目
 	location "Kitsune"  --在sln所属文件夹下的KITSUNE文件夹
@@ -39,12 +41,14 @@ project "Kitsune"		--KITSUNE项目
 		"%{prj.name}/thirdparty/spdlog/include",
 		"%{include_dir.GLFW}",
 		"%{include_dir.glad}",
+		"%{include_dir.imgui}",
 		"Kitsune/src"
 	}
 	-- 链接库
 	links{
 		"GLFW",
 		"glad",
+		"imgui",
 		"opengl32.lib"
 	}
 	-- 如果是window系统

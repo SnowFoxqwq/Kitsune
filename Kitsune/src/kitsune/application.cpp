@@ -28,6 +28,11 @@ namespace kitsune
 	{
 		_window = std::unique_ptr<Window>(Window::create());
 		_window->set_event_callback(BIND_EVENT_FUNCTION(Application::on_event));
+
+		unsigned int id;
+		glGenBuffers(1, &id);
+		KITSUNE_CORE_INFO(id);
+
 	}
 
 	Application::~Application()
