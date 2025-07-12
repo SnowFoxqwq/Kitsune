@@ -31,7 +31,7 @@ namespace kitsune
 
 	WindowsWindow::~WindowsWindow()
 	{
-		shutdown();
+		_shutdown();
 	}
 
 	void WindowsWindow::on_update()
@@ -67,7 +67,7 @@ namespace kitsune
 		if (!is_glfw_initialized)
 		{
 			int res = glfwInit();
-			KITSUNE_ASSERT(res == GLFW_TRUE, "Failed to initialize glfw");
+			KITSUNE_CORE_ASSERT(res == GLFW_TRUE, "Failed to initialize glfw");
 			is_glfw_initialized = true;
 
 			glfwSetErrorCallback(glfw_error_callback);
@@ -173,7 +173,7 @@ namespace kitsune
 		
 	}
 
-	void WindowsWindow::shutdown()
+	void WindowsWindow::_shutdown()
 	{
 		glfwDestroyWindow(_window);
 	}

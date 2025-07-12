@@ -34,6 +34,8 @@ namespace kitsune
 		virtual void vsync(bool enabled) = 0;
 		virtual bool vsync() const = 0;
 
+		virtual void* get_native_window() const = 0;
+
 		static Window* create(const WindowProps& props = WindowProps());
 	};
 }

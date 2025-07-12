@@ -76,8 +76,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>kitsune_pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>KITSUNE_PLATFORM_WINDOWS;KITSUNE_BUILD_DLL;KITSUNE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>thirdparty\spdlog\include;thirdparty\glfw\include;thirdparty\glad\include;thirdparty\imgui;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -100,8 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>kitsune_pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>KITSUNE_PLATFORM_WINDOWS;KITSUNE_BUILD_DLL;KITSUNE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>thirdparty\spdlog\include;thirdparty\glfw\include;thirdparty\glad\include;thirdparty\imgui;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -128,8 +126,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>kitsune_pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>KITSUNE_PLATFORM_WINDOWS;KITSUNE_BUILD_DLL;KITSUNE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>thirdparty\spdlog\include;thirdparty\glfw\include;thirdparty\glad\include;thirdparty\imgui;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -160,14 +157,15 @@
     <ClInclude Include="src\kitsune\console.h" />
     <ClInclude Include="src\kitsune\core\core.h" />
     <ClInclude Include="src\kitsune\core\key_codes.h" />
+    <ClInclude Include="src\kitsune\core\layer.h" />
+    <ClInclude Include="src\kitsune\core\layer_stack.h" />
     <ClInclude Include="src\kitsune\core\mouse_code.h" />
     <ClInclude Include="src\kitsune\entery_point.h" />
     <ClInclude Include="src\kitsune\event\application_event.h" />
     <ClInclude Include="src\kitsune\event\event.h" />
     <ClInclude Include="src\kitsune\event\key_event.h" />
     <ClInclude Include="src\kitsune\event\mouse_event.h" />
-    <ClInclude Include="src\kitsune\layer.h" />
-    <ClInclude Include="src\kitsune\layer_stack.h" />
+    <ClInclude Include="src\kitsune\imgui\imgui_layer.h" />
     <ClInclude Include="src\kitsune\window.h" />
     <ClInclude Include="src\kitsune_pch.h" />
     <ClInclude Include="src\platform\windows_window.h" />
@@ -175,23 +173,22 @@
   <ItemGroup>
     <ClCompile Include="src\kitsune\application.cpp" />
     <ClCompile Include="src\kitsune\console.cpp" />
+    <ClCompile Include="src\kitsune\core\layer.cpp" />
+    <ClCompile Include="src\kitsune\core\layer_stack.cpp" />
     <ClCompile Include="src\kitsune\event\event.cpp" />
-    <ClCompile Include="src\kitsune\layer.cpp" />
-    <ClCompile Include="src\kitsune\layer_stack.cpp" />
-    <ClCompile Include="src\kitsune_pch.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="src\kitsune\imgui\imgui_layer.cpp" />
+    <ClCompile Include="src\kitsune_pch.cpp" />
     <ClCompile Include="src\platform\windows_window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="thirdparty\glfw\GLFW.vcxproj">
-      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    <ProjectReference Include="thirdparty\glfw\glfw.vcxproj">
+      <Project>{9563977C-819A-980D-2A87-7E10169D140F}</Project>
     </ProjectReference>
     <ProjectReference Include="thirdparty\glad\glad.vcxproj">
       <Project>{DD62977C-C999-980D-7286-7E105E9C140F}</Project>
     </ProjectReference>
-    <ProjectReference Include="thirdparty\imgui\ImGui.vcxproj">
-      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
+    <ProjectReference Include="thirdparty\imgui\imgui.vcxproj">
+      <Project>{0098A80F-6CAC-D0C0-352E-7420A101CDF1}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

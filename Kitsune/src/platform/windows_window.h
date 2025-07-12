@@ -21,10 +21,13 @@ namespace kitsune
 		void set_event_callback(const EventCallback& callback) override { _data.callback = callback; }
 		void vsync(bool enabled) override;
 		bool vsync() const override;
+		
+		virtual void* get_native_window() const override { return _window; };
+
 	private:
 
 		virtual void _init(const WindowProps& props);
-		virtual void shutdown();
+		virtual void _shutdown();
 
 	private:
 		GLFWwindow* _window = nullptr;

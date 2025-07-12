@@ -1,5 +1,5 @@
 #include "kitsune_pch.h"
-#include "kitsune/layer.h"
+#include "layer.h"
 
 namespace kitsune
 {

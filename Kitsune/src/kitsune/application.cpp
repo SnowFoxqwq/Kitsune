@@ -24,14 +24,17 @@ namespace fmt
 namespace kitsune
 {
 #define BIND_EVENT_FUNCTION(x) std::bind(&x, this, std::placeholders::_1)
+
+	Application* Application::_instance = nullptr;
+
 	Application::Application()
 	{
+		KITSUNE_CORE_ASSERT(!_instance, "Application only allows one instance exists");
+
+		_instance = this;
+
 		_window = std::unique_ptr<Window>(Window::create());
 		_window->set_event_callback(BIND_EVENT_FUNCTION(Application::on_event));
-
-		unsigned int id;
-		glGenBuffers(1, &id);
-		KITSUNE_CORE_INFO(id);
 
 	}
 

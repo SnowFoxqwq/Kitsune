@@ -34,3 +34,7 @@
 
 //convert x to bits
 #define BIT(x) (1<<x)
+
+#define KITSUNE_DISABLE_PCH #ifdef _PCH \
+#undef _PCH \
+#endif

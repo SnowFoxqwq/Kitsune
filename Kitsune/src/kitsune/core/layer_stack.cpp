@@ -19,11 +19,13 @@ namespace kitsune
 	void LayerStack::push_layer(Layer* layer)
 	{
 		_layer_insert = _layers.emplace(_layer_insert, layer);
+		layer->on_attach();
 	}
 
 	void LayerStack::push_overlay(Layer* overlay)
 	{
 		_layers.emplace_back(overlay);
+		overlay->on_attach();
 	}
 
 	void LayerStack::pop_layer(Layer* layer)
@@ -31,6 +33,7 @@ namespace kitsune
 		auto it = std::find(_layers.begin(), _layers.end(), layer);
 		if (it != _layers.end())
 		{
+			layer->on_detach();
 			_layers.erase(it);
 			_layer_insert--;
 		}
@@ -41,6 +44,7 @@ namespace kitsune
 		auto it = std::find(_layers.begin(), _layers.end(), overlay);
 		if (it != _layers.end())
 		{
+			overlay->on_detach();
 			_layers.erase(it);
 		}
 	}

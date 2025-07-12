@@ -11,7 +11,7 @@ workspace "Kitsune"		-- sln文件名
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 include_dir = {}
-include_dir["GLFW"] = "Kitsune/thirdparty/glfw/include"
+include_dir["glfw"] = "Kitsune/thirdparty/glfw/include"
 include_dir["glad"] = "Kitsune/thirdparty/glad/include"
 include_dir["imgui"] = "Kitsune/thirdparty/imgui"
 
@@ -26,8 +26,8 @@ project "Kitsune"		--KITSUNE项目
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}") -- 输出目录
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")-- 中间目录
 
-	pchheader "kitsune_pch.h"
-	pchsource "Kitsune/src/kitsune_pch.cpp"
+	--pchheader "kitsune_pch.h"
+	--pchsource "Kitsune/src/kitsune_pch.cpp"
 
 	buildoptions { "/utf-8" }
 
@@ -39,16 +39,16 @@ project "Kitsune"		--KITSUNE项目
 	-- 包含目录
 	includedirs{
 		"%{prj.name}/thirdparty/spdlog/include",
-		"%{include_dir.GLFW}",
+		"%{include_dir.glfw}",
 		"%{include_dir.glad}",
 		"%{include_dir.imgui}",
 		"Kitsune/src"
 	}
 	-- 链接库
 	links{
-		"GLFW",
+		"glfw",
 		"glad",
-		"imgui",
+		"ImGui",
 		"opengl32.lib"
 	}
 	-- 如果是window系统

@@ -1,9 +1,6 @@
 [submodule "Kitsune/thirdparty/spdlog"]
 	path = Kitsune/thirdparty/spdlog
 	url = https://github.com/gabime/spdlog
-[submodule "Kitsune/thirdparty/glfw"]
-	path = Kitsune/thirdparty/glfw
-	url = https://github.com/glfw/glfw
 [submodule "glfw"]
 	path = Kitsune/thirdparty/glfw
 	url = https://github.com/SnowFoxqwq/glfw---kitsune_specialized

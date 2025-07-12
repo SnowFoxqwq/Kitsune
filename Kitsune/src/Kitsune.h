@@ -2,8 +2,6 @@
 
 //This file should be used by kitsune applications
 
-#include<cstdio>
-
 #include "kitsune/application.h"
 
 #include "kitsune/console.h"
@@ -20,4 +18,10 @@
 //---window related----------------------------
 #include "kitsune/window.h"
 #include "platform/windows_window.h"
+//---------------------------------------------
+
+//---layer related----------------------------
+#include "kitsune/core/layer.h"
+#include "kitsune/core/layer_stack.h"
+#include "kitsune/imgui/imgui_layer.h"
 //---------------------------------------------
